@@ -1,0 +1,106 @@
+{
+  "version": 1,
+  "nota": "Reglas de orden lógico del tren. 'aguasArriba' y 'aguasAbajo' se buscan siguiendo las tuberías (sin contar recirculaciones ni aire).",
+  "ordenEtapas": [
+    "pretratamiento",
+    "primario",
+    "secundario",
+    "terciario"
+  ],
+  "reglas": [
+    {
+      "id": "primario_requiere_pretratamiento",
+      "tipo": "requiereAguasArriba",
+      "si": {
+        "unidad": [
+          "sedimentador_primario"
+        ]
+      },
+      "requiere": {
+        "unidad": [
+          "rejillas_gruesas",
+          "rejillas_finas",
+          "hidrocriba",
+          "desarenador"
+        ]
+      },
+      "mensaje": "no tiene pretratamiento aguas arriba (rejillas, hidrocriba o desarenador)."
+    },
+    {
+      "id": "secundario_requiere_pretratamiento",
+      "tipo": "requiereAguasArriba",
+      "si": {
+        "unidad": [
+          "lodos_activados",
+          "sbr",
+          "aireacion_extendida",
+          "anoxico_aerobio",
+          "filtro_percolador",
+          "mbbr"
+        ]
+      },
+      "requiere": {
+        "unidad": [
+          "rejillas_gruesas",
+          "rejillas_finas",
+          "hidrocriba",
+          "desarenador"
+        ]
+      },
+      "mensaje": "es un tratamiento secundario sin pretratamiento aguas arriba (rejillas, hidrocriba o desarenador)."
+    },
+    {
+      "id": "reactor_requiere_sedimentador",
+      "tipo": "requiereAguasAbajo",
+      "si": {
+        "unidad": [
+          "lodos_activados",
+          "aireacion_extendida",
+          "anoxico_aerobio",
+          "filtro_percolador",
+          "mbbr"
+        ]
+      },
+      "requiere": {
+        "unidad": [
+          "sedimentador_secundario"
+        ]
+      },
+      "mensaje": "requiere un sedimentador secundario aguas abajo."
+    },
+    {
+      "id": "sedimentador_requiere_reactor",
+      "tipo": "requiereAguasArriba",
+      "si": {
+        "unidad": [
+          "sedimentador_secundario"
+        ]
+      },
+      "requiere": {
+        "unidad": [
+          "lodos_activados",
+          "aireacion_extendida",
+          "anoxico_aerobio",
+          "filtro_percolador",
+          "mbbr"
+        ]
+      },
+      "mensaje": "no tiene un reactor biológico aguas arriba."
+    },
+    {
+      "id": "osmosis_requiere_filtracion",
+      "tipo": "requiereAguasArriba",
+      "si": {
+        "unidad": [
+          "osmosis_inversa"
+        ]
+      },
+      "requiere": {
+        "unidad": [
+          "filtracion"
+        ]
+      },
+      "mensaje": "exige filtración previa aguas arriba."
+    }
+  ]
+}

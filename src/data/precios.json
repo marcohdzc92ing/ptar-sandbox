@@ -1,0 +1,79 @@
+{
+  "version": 1,
+  "moneda": "MXN",
+  "anioBase": 2026,
+  "factorActualizacion": 1.0,
+  "leyenda": "estimación de orden de magnitud, no es presupuesto",
+  "nota": "Precios sin IVA. Todos llevan \"verificado\": false. Solo concreto y acero tienen una referencia pública (indirecta); el resto son estimaciones de orden de magnitud propuestas por el asistente, sin cotización ni tabulador que las respalde. Sustituir con un tabulador de precios unitarios vigente o cotizaciones de proveedores.",
+  "obraCivil": {
+    "excavacion_m3": {
+      "precio": 150, "unidad": "MXN/m³",
+      "fuente": "Estimación del asistente: excavación con máquina en material común, con acarreo corto. Sin fuente documental.",
+      "verificado": false
+    },
+    "concreto_m3": {
+      "precio": 5000, "unidad": "MXN/m³",
+      "fuente": "Concreto premezclado f'c 250 bombeable, colocado: $4,997.84/m³ según el tabulador de precios unitarios de la CDMX de julio de 2026, citado por tandacasa.com (fuente secundaria; no se consultó el tabulador). No incluye cimbra ni impermeabilización.",
+      "verificado": false
+    },
+    "acero_kg": {
+      "precio": 37.5, "unidad": "MXN/kg",
+      "fuente": "Acero de refuerzo habilitado y colocado: $37,559.70/t según el tabulador de precios unitarios de la CDMX de julio de 2026, citado por tandacasa.com (fuente secundaria).",
+      "verificado": false
+    },
+    "espesorLosa_m": 0.3,
+    "espesorMuro_m": 0.3,
+    "cuantiaAcero_kg_m3": 100,
+    "sobreexcavacion_m": 1.0,
+    "fraccionEnterrada": 0.5,
+    "fraccionEnterradaPorUnidad": { "carcamo_rebombeo": 1 },
+    "notaGeometria": "Losa de fondo y muros perimetrales; los módulos rectangulares adosados comparten muro. La excavación cubre la huella más la sobreexcavación, hasta la fracción enterrada de la altura del tanque más la losa. No incluye cubiertas, pasarelas ni cimentación especial."
+  },
+  "equipos": {
+    "rejilla": { "nombre": "Rejilla", "variable": "anchoCanal_m", "unidadVariable": "m de ancho", "fijo": 250000, "unitario": 200000 },
+    "hidrocriba": { "nombre": "Hidrocriba", "variable": "Qmax_Ls", "unidadVariable": "L/s a Qmáx", "fijo": 300000, "unitario": 8000 },
+    "bomba": { "nombre": "Bombas", "variable": "potenciaBombas_kW", "unidadVariable": "kW instalados", "fijo": 60000, "unitario": 25000 },
+    "bomba_lodos": { "nombre": "Bombeo de lodos y recirculación", "variable": "caudalLodos_Ls", "unidadVariable": "L/s", "fijo": 120000, "unitario": 3000 },
+    "soplador": { "nombre": "Sopladores", "variable": "potencia_kW", "unidadVariable": "kW instalados", "fijo": 200000, "unitario": 30000 },
+    "difusores": { "nombre": "Difusores", "variable": "areaTanque_m2", "unidadVariable": "m² de tanque", "fijo": 0, "unitario": 1800 },
+    "decantador": { "nombre": "Decantador de SBR", "variable": "modulos", "unidadVariable": "tanques", "fijo": 0, "unitario": 450000 },
+    "mezclador": { "nombre": "Mezclador", "variable": "modulos", "unidadVariable": "tanques", "fijo": 0, "unitario": 180000 },
+    "medio_soporte": { "nombre": "Medio de soporte", "variable": "volumenMedio_m3", "unidadVariable": "m³ de medio", "fijo": 0, "unitario": 9000 },
+    "distribuidor_rotatorio": { "nombre": "Distribuidor rotatorio", "variable": "diametro_m", "unidadVariable": "m de diámetro", "fijo": 300000, "unitario": 40000 },
+    "mecanismo_sedimentador": { "nombre": "Mecanismo de sedimentador", "variable": "diametro_m", "unidadVariable": "m de diámetro o largo", "fijo": 400000, "unitario": 90000 },
+    "medio_filtrante": { "nombre": "Medio filtrante y falso fondo", "variable": "areaTanque_m2", "unidadVariable": "m² de filtro", "fijo": 0, "unitario": 6000 },
+    "cloracion": { "nombre": "Sistema de cloración", "variable": "Qmed_Ls", "unidadVariable": "L/s a Qmed", "fijo": 250000, "unitario": 4000 },
+    "lamparas_uv": { "nombre": "Lámparas UV", "variable": "potencia_kW", "unidadVariable": "kW instalados", "fijo": 300000, "unitario": 90000 },
+    "generador_ozono": { "nombre": "Generador de ozono", "variable": "kgO3_d", "unidadVariable": "kg O₃/d", "fijo": 800000, "unitario": 150000 },
+    "membranas": { "nombre": "Membranas de ósmosis", "variable": "areaMembrana_m2", "unidadVariable": "m² de membrana", "fijo": 0, "unitario": 1500 },
+    "bomba_alta_presion": { "nombre": "Bombeo de alta presión", "variable": "potencia_kW", "unidadVariable": "kW instalados", "fijo": 150000, "unitario": 35000 },
+    "filtro_prensa": { "nombre": "Filtro prensa", "variable": "modulos", "unidadVariable": "equipos", "fijo": 0, "unitario": 2500000 }
+  },
+  "fuenteEquipos": "Todos los equipos: estimación de orden de magnitud del asistente (costo = fijo × cantidad + unitario × capacidad), sin cotización. Sustituir con cotizaciones de proveedores.",
+  "equiposVerificado": false,
+  "tuberias": {
+    "PVC": { "precioDN100_m": 450, "exponente": 1.3 },
+    "PEAD": { "precioDN100_m": 550, "exponente": 1.3 },
+    "acero": { "precioDN100_m": 1400, "exponente": 1.2 },
+    "concreto": { "precioDN100_m": 700, "exponente": 1.2 }
+  },
+  "fuenteTuberias": "Estimación del asistente: precio por metro instalado (suministro, zanja, plantilla y relleno) = precioDN100 × (DN/100)^exponente. Sin fuente documental.",
+  "tuberiasVerificado": false,
+  "porcentajes": { "indirectos": 0.2, "ingenieria": 0.08, "iva": 0.16 },
+  "operacion": {
+    "tarifa_kWh": {
+      "precio": 2.8, "unidad": "MXN/kWh",
+      "fuente": "Estimación del asistente para media tensión, con cargos por demanda prorrateados. No se obtuvo la tarifa publicada por CFE; sustituir con la tarifa de la región.",
+      "verificado": false
+    },
+    "cloro_kg": {
+      "precio": 75, "unidad": "MXN/kg de cloro activo",
+      "fuente": "Estimación del asistente: hipoclorito de sodio al 13 % a unos $10/kg de producto. No se encontró precio local vigente; cotizar.",
+      "verificado": false
+    },
+    "factorUsoEnergia": 0.75,
+    "diasOperacion": 365,
+    "vidaUtil_anios": 20
+  },
+  "rango": { "bajo": -0.3, "alto": 0.5 }
+}

@@ -1,0 +1,181 @@
+{
+  "version": 1,
+  "nota": "Límites transcritos del texto publicado en el DOF. Todos los valores llevan \"verificado\": false hasta que el profesor los coteje contra la publicación oficial. pm = promedio mensual, pd = promedio diario, vi = valor instantáneo. null = sin dato (no se aproxima). El valor estimado del diseño se compara contra el promedio mensual; si no existe, contra el diario o el instantáneo.",
+  "consultado": "2026-11-11",
+  "normas": {
+    "NOM-001-SEMARNAT-2021": {
+      "titulo": "Que establece los límites permisibles de contaminantes en las descargas de aguas residuales en cuerpos receptores propiedad de la nación",
+      "publicacionDOF": "2022-03-11",
+      "tabla": "Tabla 1. Límites permisibles",
+      "fuente": "https://dof.gob.mx/nota_detalle.php?codigo=5645374&fecha=11/03/2022",
+      "metodoTranscripcion": "Texto HTML del DOF leído con extracción automática; cotejar celda por celda.",
+      "noEvaluados": [
+        "Carbono orgánico total",
+        "Enterococos fecales",
+        "pH (6–9 UpH)",
+        "Color verdadero",
+        "Toxicidad aguda",
+        "Metales y cianuros (Tabla 2)"
+      ],
+      "categorias": {
+        "rios": {
+          "nombre": "Ríos, arroyos, canales, drenes",
+          "limites": [
+            { "parametro": "T", "nombreNorma": "Temperatura", "unidad": "°C", "aplica": true, "pm": 35, "pd": 35, "vi": 35, "verificado": false },
+            { "parametro": "GyA", "nombreNorma": "Grasas y aceites", "unidad": "mg/L", "aplica": true, "pm": 15, "pd": 18, "vi": 21, "verificado": false },
+            { "parametro": "SST", "nombreNorma": "Sólidos suspendidos totales", "unidad": "mg/L", "aplica": true, "pm": 60, "pd": 72, "vi": 84, "verificado": false },
+            { "parametro": "DQO", "nombreNorma": "Demanda química de oxígeno", "unidad": "mg/L", "aplica": true, "pm": 150, "pd": 180, "vi": 210, "verificado": false, "nota": "Aplica si cloruros < 1000 mg/L; en caso contrario la norma pide carbono orgánico total (COT)." },
+            { "parametro": "NT", "nombreNorma": "Nitrógeno total", "unidad": "mg/L", "aplica": true, "pm": 25, "pd": 30, "vi": 35, "verificado": false },
+            { "parametro": "PT", "nombreNorma": "Fósforo total", "unidad": "mg/L", "aplica": true, "pm": 15, "pd": 18, "vi": 21, "verificado": false },
+            { "parametro": "HH", "nombreNorma": "Huevos de helmintos", "unidad": "huevos/L", "aplica": true, "pm": null, "pd": null, "vi": null, "verificado": false, "nota": "Sin dato: en el texto HTML del DOF la fila aparece como nueve \"NA\" y un \"1\", sin poder asignar el valor a una columna. Revisar en el PDF del DOF." },
+            { "parametro": "CF", "nombreNorma": "Escherichia coli", "unidad": "NMP/100 mL", "aplica": true, "pm": 250, "pd": 500, "vi": 600, "verificado": false, "comparacion": "cota_superior", "nota": "La norma regula E. coli (o enterococos fecales si la conductividad ≥ 3500 µS/cm), no coliformes fecales. Como E. coli es parte de los coliformes fecales, el valor estimado de CF se usa como cota superior: si CF cumple, E. coli cumple; si CF excede, no se puede concluir." }
+          ]
+        },
+        "embalses": {
+          "nombre": "Embalses, lagos y lagunas",
+          "limites": [
+            { "parametro": "T", "nombreNorma": "Temperatura", "unidad": "°C", "aplica": true, "pm": 35, "pd": 35, "vi": 35, "verificado": false },
+            { "parametro": "GyA", "nombreNorma": "Grasas y aceites", "unidad": "mg/L", "aplica": true, "pm": 15, "pd": 18, "vi": 21, "verificado": false },
+            { "parametro": "SST", "nombreNorma": "Sólidos suspendidos totales", "unidad": "mg/L", "aplica": true, "pm": 20, "pd": 24, "vi": 28, "verificado": false },
+            { "parametro": "DQO", "nombreNorma": "Demanda química de oxígeno", "unidad": "mg/L", "aplica": true, "pm": 100, "pd": 120, "vi": 140, "verificado": false, "nota": "Aplica si cloruros < 1000 mg/L; en caso contrario la norma pide carbono orgánico total (COT)." },
+            { "parametro": "NT", "nombreNorma": "Nitrógeno total", "unidad": "mg/L", "aplica": true, "pm": 15, "pd": 25, "vi": 30, "verificado": false },
+            { "parametro": "PT", "nombreNorma": "Fósforo total", "unidad": "mg/L", "aplica": true, "pm": 5, "pd": 10, "vi": 15, "verificado": false },
+            { "parametro": "HH", "nombreNorma": "Huevos de helmintos", "unidad": "huevos/L", "aplica": true, "pm": null, "pd": null, "vi": null, "verificado": false, "nota": "Sin dato: en el texto HTML del DOF la fila aparece como nueve \"NA\" y un \"1\", sin poder asignar el valor a una columna. Revisar en el PDF del DOF." },
+            { "parametro": "CF", "nombreNorma": "Escherichia coli", "unidad": "NMP/100 mL", "aplica": true, "pm": 250, "pd": 500, "vi": 600, "verificado": false, "comparacion": "cota_superior", "nota": "La norma regula E. coli (o enterococos fecales si la conductividad ≥ 3500 µS/cm), no coliformes fecales. Como E. coli es parte de los coliformes fecales, el valor estimado de CF se usa como cota superior: si CF cumple, E. coli cumple; si CF excede, no se puede concluir." }
+          ]
+        },
+        "zonas_marinas": {
+          "nombre": "Zonas marinas mexicanas",
+          "limites": [
+            { "parametro": "T", "nombreNorma": "Temperatura", "unidad": "°C", "aplica": true, "pm": 35, "pd": 35, "vi": 35, "verificado": false },
+            { "parametro": "GyA", "nombreNorma": "Grasas y aceites", "unidad": "mg/L", "aplica": true, "pm": 15, "pd": 18, "vi": 21, "verificado": false },
+            { "parametro": "SST", "nombreNorma": "Sólidos suspendidos totales", "unidad": "mg/L", "aplica": true, "pm": 20, "pd": 24, "vi": 28, "verificado": false },
+            { "parametro": "DQO", "nombreNorma": "Demanda química de oxígeno", "unidad": "mg/L", "aplica": true, "pm": 85, "pd": 100, "vi": 120, "verificado": false, "nota": "Aplica si cloruros < 1000 mg/L; en caso contrario la norma pide carbono orgánico total (COT)." },
+            { "parametro": "NT", "nombreNorma": "Nitrógeno total", "unidad": "mg/L", "aplica": true, "pm": 25, "pd": 30, "vi": 35, "verificado": false },
+            { "parametro": "PT", "nombreNorma": "Fósforo total", "unidad": "mg/L", "aplica": true, "pm": 15, "pd": 18, "vi": 21, "verificado": false },
+            { "parametro": "HH", "nombreNorma": "Huevos de helmintos", "unidad": "huevos/L", "aplica": true, "pm": null, "pd": null, "vi": null, "verificado": false, "nota": "Sin dato: en el texto HTML del DOF la fila aparece como nueve \"NA\" y un \"1\", sin poder asignar el valor a una columna. Revisar en el PDF del DOF." },
+            { "parametro": "CF", "nombreNorma": "Escherichia coli", "unidad": "NMP/100 mL", "aplica": true, "pm": 250, "pd": 500, "vi": 600, "verificado": false, "comparacion": "cota_superior", "nota": "La norma regula E. coli (o enterococos fecales si la conductividad ≥ 3500 µS/cm), no coliformes fecales. Como E. coli es parte de los coliformes fecales, el valor estimado de CF se usa como cota superior: si CF cumple, E. coli cumple; si CF excede, no se puede concluir." }
+          ]
+        },
+        "suelo_riego_areas_verdes": {
+          "nombre": "Suelo: riego de áreas verdes",
+          "limites": [
+            { "parametro": "T", "nombreNorma": "Temperatura", "unidad": "°C", "aplica": true, "pm": 35, "pd": 35, "vi": 35, "verificado": false },
+            { "parametro": "GyA", "nombreNorma": "Grasas y aceites", "unidad": "mg/L", "aplica": true, "pm": 15, "pd": 18, "vi": 21, "verificado": false },
+            { "parametro": "SST", "nombreNorma": "Sólidos suspendidos totales", "unidad": "mg/L", "aplica": true, "pm": 30, "pd": 36, "vi": 42, "verificado": false },
+            { "parametro": "DQO", "nombreNorma": "Demanda química de oxígeno", "unidad": "mg/L", "aplica": true, "pm": 60, "pd": 72, "vi": 84, "verificado": false, "nota": "Aplica si cloruros < 1000 mg/L; en caso contrario la norma pide carbono orgánico total (COT)." },
+            { "parametro": "NT", "nombreNorma": "Nitrógeno total", "unidad": "mg/L", "aplica": false, "pm": null, "pd": null, "vi": null, "verificado": false },
+            { "parametro": "PT", "nombreNorma": "Fósforo total", "unidad": "mg/L", "aplica": false, "pm": null, "pd": null, "vi": null, "verificado": false },
+            { "parametro": "HH", "nombreNorma": "Huevos de helmintos", "unidad": "huevos/L", "aplica": true, "pm": null, "pd": null, "vi": null, "verificado": false, "nota": "Sin dato: en el texto HTML del DOF la fila aparece como nueve \"NA\" y un \"1\", sin poder asignar el valor a una columna. Revisar en el PDF del DOF." },
+            { "parametro": "CF", "nombreNorma": "Escherichia coli", "unidad": "NMP/100 mL", "aplica": true, "pm": 250, "pd": 500, "vi": 600, "verificado": false, "comparacion": "cota_superior", "nota": "La norma regula E. coli (o enterococos fecales si la conductividad ≥ 3500 µS/cm), no coliformes fecales. Como E. coli es parte de los coliformes fecales, el valor estimado de CF se usa como cota superior: si CF cumple, E. coli cumple; si CF excede, no se puede concluir." }
+          ]
+        },
+        "suelo_infiltracion": {
+          "nombre": "Suelo: infiltración y otros riegos",
+          "limites": [
+            { "parametro": "T", "nombreNorma": "Temperatura", "unidad": "°C", "aplica": true, "pm": 35, "pd": 35, "vi": 35, "verificado": false },
+            { "parametro": "GyA", "nombreNorma": "Grasas y aceites", "unidad": "mg/L", "aplica": true, "pm": 15, "pd": 18, "vi": 21, "verificado": false },
+            { "parametro": "SST", "nombreNorma": "Sólidos suspendidos totales", "unidad": "mg/L", "aplica": true, "pm": 100, "pd": 120, "vi": 140, "verificado": false },
+            { "parametro": "DQO", "nombreNorma": "Demanda química de oxígeno", "unidad": "mg/L", "aplica": true, "pm": 150, "pd": 180, "vi": 210, "verificado": false, "nota": "Aplica si cloruros < 1000 mg/L; en caso contrario la norma pide carbono orgánico total (COT)." },
+            { "parametro": "NT", "nombreNorma": "Nitrógeno total", "unidad": "mg/L", "aplica": false, "pm": null, "pd": null, "vi": null, "verificado": false },
+            { "parametro": "PT", "nombreNorma": "Fósforo total", "unidad": "mg/L", "aplica": false, "pm": null, "pd": null, "vi": null, "verificado": false },
+            { "parametro": "HH", "nombreNorma": "Huevos de helmintos", "unidad": "huevos/L", "aplica": true, "pm": null, "pd": null, "vi": null, "verificado": false, "nota": "Sin dato: en el texto HTML del DOF la fila aparece como nueve \"NA\" y un \"1\", sin poder asignar el valor a una columna. Revisar en el PDF del DOF." },
+            { "parametro": "CF", "nombreNorma": "Escherichia coli", "unidad": "NMP/100 mL", "aplica": true, "pm": 250, "pd": 500, "vi": 600, "verificado": false, "comparacion": "cota_superior", "nota": "La norma regula E. coli (o enterococos fecales si la conductividad ≥ 3500 µS/cm), no coliformes fecales. Como E. coli es parte de los coliformes fecales, el valor estimado de CF se usa como cota superior: si CF cumple, E. coli cumple; si CF excede, no se puede concluir." }
+          ]
+        },
+        "suelo_carstico": {
+          "nombre": "Suelo: cárstico",
+          "limites": [
+            { "parametro": "T", "nombreNorma": "Temperatura", "unidad": "°C", "aplica": true, "pm": 35, "pd": 35, "vi": 35, "verificado": false },
+            { "parametro": "GyA", "nombreNorma": "Grasas y aceites", "unidad": "mg/L", "aplica": true, "pm": 15, "pd": 18, "vi": 21, "verificado": false },
+            { "parametro": "SST", "nombreNorma": "Sólidos suspendidos totales", "unidad": "mg/L", "aplica": true, "pm": 20, "pd": 24, "vi": 28, "verificado": false },
+            { "parametro": "DQO", "nombreNorma": "Demanda química de oxígeno", "unidad": "mg/L", "aplica": true, "pm": 60, "pd": 72, "vi": 84, "verificado": false, "nota": "Aplica si cloruros < 1000 mg/L; en caso contrario la norma pide carbono orgánico total (COT)." },
+            { "parametro": "NT", "nombreNorma": "Nitrógeno total", "unidad": "mg/L", "aplica": true, "pm": 15, "pd": 25, "vi": 30, "verificado": false },
+            { "parametro": "PT", "nombreNorma": "Fósforo total", "unidad": "mg/L", "aplica": true, "pm": 5, "pd": 10, "vi": 15, "verificado": false },
+            { "parametro": "HH", "nombreNorma": "Huevos de helmintos", "unidad": "huevos/L", "aplica": true, "pm": null, "pd": null, "vi": null, "verificado": false, "nota": "Sin dato: en el texto HTML del DOF la fila aparece como nueve \"NA\" y un \"1\", sin poder asignar el valor a una columna. Revisar en el PDF del DOF." },
+            { "parametro": "CF", "nombreNorma": "Escherichia coli", "unidad": "NMP/100 mL", "aplica": true, "pm": 50, "pd": 100, "vi": 200, "verificado": false, "comparacion": "cota_superior", "nota": "La norma regula E. coli (o enterococos fecales si la conductividad ≥ 3500 µS/cm), no coliformes fecales. Como E. coli es parte de los coliformes fecales, el valor estimado de CF se usa como cota superior: si CF cumple, E. coli cumple; si CF excede, no se puede concluir." }
+          ]
+        }
+      }
+    },
+    "NOM-002-SEMARNAT-1996": {
+      "titulo": "Que establece los límites máximos permisibles de contaminantes en las descargas de aguas residuales a los sistemas de alcantarillado urbano o municipal",
+      "publicacionDOF": "1998-06-03",
+      "tabla": "Tabla 1. Límites máximos permisibles; numerales 4.4 y 4.6",
+      "fuente": "https://dof.gob.mx/nota_detalle.php?codigo=4881304&fecha=03/06/1998",
+      "metodoTranscripcion": "Texto HTML del DOF (publicada como NOM-002-ECOL-1996) leído con extracción automática; cotejar.",
+      "noEvaluados": [
+        "Sólidos sedimentables",
+        "pH (5.5–10)",
+        "Materia flotante",
+        "Metales y cianuro (Tabla 1)"
+      ],
+      "categorias": {
+        "alcantarillado": {
+          "nombre": "Alcantarillado urbano o municipal",
+          "limites": [
+            { "parametro": "GyA", "nombreNorma": "Grasas y aceites", "unidad": "mg/L", "aplica": true, "pm": 50, "pd": 75, "vi": 100, "verificado": false },
+            { "parametro": "T", "nombreNorma": "Temperatura", "unidad": "°C", "aplica": true, "pm": null, "pd": null, "vi": 40, "verificado": false, "nota": "Numeral 4.4: 40 °C, medida en forma instantánea a cada muestra simple." },
+            { "parametro": "DBO5", "nombreNorma": "Demanda bioquímica de oxígeno", "unidad": "mg/L", "aplica": true, "pm": null, "pd": null, "vi": null, "verificado": false, "nota": "Numeral 4.6: el límite es el de la Tabla 2 de la NOM-001-ECOL-1996 o el de las condiciones particulares de descarga. No se transcribe valor." },
+            { "parametro": "SST", "nombreNorma": "Sólidos suspendidos totales", "unidad": "mg/L", "aplica": true, "pm": null, "pd": null, "vi": null, "verificado": false, "nota": "Numeral 4.6: el límite es el de la Tabla 2 de la NOM-001-ECOL-1996 o el de las condiciones particulares de descarga. No se transcribe valor." }
+          ]
+        }
+      }
+    },
+    "NOM-003-SEMARNAT-1997": {
+      "titulo": "Que establece los límites máximos permisibles de contaminantes para las aguas residuales tratadas que se reusen en servicios al público",
+      "publicacionDOF": "1998-09-21",
+      "tabla": "Tabla 1. Límites máximos permisibles de contaminantes (promedio mensual)",
+      "fuente": "https://platiica.economia.gob.mx/wp-content/uploads/sites/2/PDF_Normas_Publicas/003ecol.pdf",
+      "metodoTranscripcion": "Tabla leída directamente del PDF del Catálogo Mexicano de Normas (Secretaría de Economía), que reproduce la publicación del DOF como NOM-003-ECOL-1997. La fecha de publicación se tomó del mismo catálogo; cotejar contra el DOF.",
+      "noEvaluados": [
+        "Materia flotante (ausente)",
+        "Metales pesados y cianuros (numeral 4.3)"
+      ],
+      "categorias": {
+        "directo": {
+          "nombre": "Servicios al público con contacto directo",
+          "limites": [
+            { "parametro": "CF", "nombreNorma": "Coliformes fecales", "unidad": "NMP/100 mL", "aplica": true, "pm": 240, "pd": null, "vi": null, "verificado": false },
+            { "parametro": "HH", "nombreNorma": "Huevos de helminto", "unidad": "h/L", "aplica": true, "pm": 1, "pd": null, "vi": null, "verificado": false },
+            { "parametro": "GyA", "nombreNorma": "Grasas y aceites", "unidad": "mg/L", "aplica": true, "pm": 15, "pd": null, "vi": null, "verificado": false },
+            { "parametro": "DBO5", "nombreNorma": "DBO₅", "unidad": "mg/L", "aplica": true, "pm": 20, "pd": null, "vi": null, "verificado": false },
+            { "parametro": "SST", "nombreNorma": "SST", "unidad": "mg/L", "aplica": true, "pm": 20, "pd": null, "vi": null, "verificado": false }
+          ]
+        },
+        "indirecto": {
+          "nombre": "Servicios al público con contacto indirecto u ocasional",
+          "limites": [
+            { "parametro": "CF", "nombreNorma": "Coliformes fecales", "unidad": "NMP/100 mL", "aplica": true, "pm": 1000, "pd": null, "vi": null, "verificado": false },
+            { "parametro": "HH", "nombreNorma": "Huevos de helminto", "unidad": "h/L", "aplica": true, "pm": 5, "pd": null, "vi": null, "verificado": false },
+            { "parametro": "GyA", "nombreNorma": "Grasas y aceites", "unidad": "mg/L", "aplica": true, "pm": 15, "pd": null, "vi": null, "verificado": false },
+            { "parametro": "DBO5", "nombreNorma": "DBO₅", "unidad": "mg/L", "aplica": true, "pm": 30, "pd": null, "vi": null, "verificado": false },
+            { "parametro": "SST", "nombreNorma": "SST", "unidad": "mg/L", "aplica": true, "pm": 30, "pd": null, "vi": null, "verificado": false }
+          ]
+        }
+      }
+    }
+  },
+  "destinos": {
+    "descarga_cuerpo_receptor": {
+      "norma": "NOM-001-SEMARNAT-2021",
+      "categoriaParam": "receptor"
+    },
+    "descarga_alcantarillado": {
+      "norma": "NOM-002-SEMARNAT-1996",
+      "categoria": "alcantarillado"
+    },
+    "reuso_directo": {
+      "norma": "NOM-003-SEMARNAT-1997",
+      "categoria": "directo"
+    },
+    "reuso_indirecto": {
+      "norma": "NOM-003-SEMARNAT-1997",
+      "categoria": "indirecto"
+    },
+    "riego": {
+      "norma": "NOM-003-SEMARNAT-1997",
+      "categoriaParam": "contacto"
+    }
+  }
+}

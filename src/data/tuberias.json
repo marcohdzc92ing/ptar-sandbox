@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "nota": "El diámetro interior se toma igual al nominal. La velocidad se calcula a tubo lleno (v = Q / A).",
+  "fluidos": {
+    "agua": { "nombre": "Agua", "color": "#1e88e5", "evaluarVelocidad": true },
+    "lodos": { "nombre": "Lodos", "color": "#6d4c41", "evaluarVelocidad": false,
+      "nota": "No se evalúa la velocidad: la purga suele bombearse de forma intermitente y el caudal medio diario no representa el caudal de bombeo." },
+    "recirculacion": { "nombre": "Recirculación", "color": "#8e24aa", "evaluarVelocidad": true },
+    "aire": { "nombre": "Aire", "color": "#78909c", "evaluarVelocidad": false,
+      "nota": "No se calcula el caudal de aire en esta versión." },
+    "rechazo": { "nombre": "Rechazo", "color": "#e53935", "evaluarVelocidad": true }
+  },
+  "compatibilidad": {
+    "agua": ["agua"],
+    "lodos": ["lodos"],
+    "recirculacion": ["recirculacion"],
+    "aire": ["aire"],
+    "rechazo": ["agua"]
+  },
+  "materiales": [
+    { "id": "PVC", "nombre": "PVC" },
+    { "id": "PEAD", "nombre": "PEAD" },
+    { "id": "acero", "nombre": "Acero" },
+    { "id": "concreto", "nombre": "Concreto" }
+  ],
+  "diametros_mm": [50, 75, 100, 150, 200, 250, 300, 350, 400, 450, 500, 600, 750, 900, 1000, 1200],
+  "dnDefecto_mm": 250,
+  "materialDefecto": "PVC",
+  "regimenDefecto": "presion",
+  "regimenes": {
+    "presion": { "nombre": "A presión", "vMin": 0.6, "vMax": 3.0 },
+    "gravedad": { "nombre": "Canal o gravedad", "vMin": 0.6, "vMinRecomendada": 0.9, "vMax": null }
+  },
+  "longitudAcometida_m": 1
+}

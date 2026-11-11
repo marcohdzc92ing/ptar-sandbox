@@ -1,0 +1,104 @@
+{
+  "version": 1,
+  "fuente": "Valores típicos de Metcalf & Eddy (Wastewater Engineering) y del MAPAS de CONAGUA. Editables.",
+  "general": {
+    "toleranciaAmarillo": 0.15,
+    "separacionMinima_m": 1.5,
+    "separacionModulosCirculares_m": 1.5
+  },
+  "unidades": {
+    "canal_entrada": { "criterios": [
+      { "indicador": "velocidad", "nombre": "Velocidad en el canal a Qmed", "unidad": "m/s", "min": 0.3, "max": 0.9 }
+    ] },
+    "rejillas_gruesas": { "criterios": [
+      { "indicador": "abertura", "nombre": "Abertura entre barras", "unidad": "mm", "min": 25, "max": 50 },
+      { "indicador": "velocidadBarras", "nombre": "Velocidad entre barras a Qmed", "unidad": "m/s", "min": 0.6, "max": 1.2 }
+    ] },
+    "rejillas_finas": { "criterios": [
+      { "indicador": "abertura", "nombre": "Abertura entre barras", "unidad": "mm", "min": 6, "max": 20 },
+      { "indicador": "velocidadBarras", "nombre": "Velocidad entre barras a Qmed", "unidad": "m/s", "min": 0.6, "max": 1.2 }
+    ] },
+    "desarenador": { "criterios": [
+      { "indicador": "velocidad", "nombre": "Velocidad horizontal a Qmed", "unidad": "m/s", "min": 0.25, "max": 0.4 },
+      { "indicador": "trh_s", "nombre": "Tiempo de retención a Qmed", "unidad": "s", "min": 45, "max": 90 }
+    ] },
+    "hidrocriba": { "criterios": [
+      { "indicador": "abertura", "nombre": "Abertura de malla", "unidad": "mm", "min": 0.25, "max": 1.5 },
+      { "indicador": "cargaAncho", "nombre": "Carga por metro de ancho a Qmáx", "unidad": "m³/h·m", "min": null, "maxParam": "cargaFabricante" }
+    ] },
+    "carcamo_rebombeo": { "criterios": [
+      { "indicador": "trh_min", "nombre": "Tiempo de retención a Qmed", "unidad": "min", "min": 10, "max": 30 },
+      { "indicador": "numBombas", "nombre": "Número de bombas (1 + 1)", "unidad": "", "min": 2, "max": null, "estricto": true }
+    ] },
+    "sedimentador_primario": { "criterios": [
+      { "indicador": "cargaSup_Qmed", "nombre": "Carga superficial a Qmed", "unidad": "m³/m²·d", "min": 30, "max": 50 },
+      { "indicador": "cargaSup_Qmax", "nombre": "Carga superficial a Qmáx", "unidad": "m³/m²·d", "min": 80, "max": 120 },
+      { "indicador": "trh_h", "nombre": "Tiempo de retención a Qmed", "unidad": "h", "min": 1.5, "max": 2.5 },
+      { "indicador": "profundidad", "nombre": "Profundidad útil", "unidad": "m", "min": 3, "max": 5 }
+    ] },
+    "lodos_activados": { "criterios": [
+      { "indicador": "trh_h", "nombre": "Tiempo de retención hidráulico", "unidad": "h", "min": 4, "max": 8 },
+      { "indicador": "fm", "nombre": "Relación F/M", "unidad": "d⁻¹", "min": 0.2, "max": 0.4 },
+      { "indicador": "trc_d", "nombre": "Tiempo de retención celular", "unidad": "d", "min": 3, "max": 15 },
+      { "indicador": "sslm", "nombre": "SSLM", "unidad": "mg/L", "min": 1500, "max": 4000 }
+    ] },
+    "aireacion_extendida": { "criterios": [
+      { "indicador": "trh_h", "nombre": "Tiempo de retención hidráulico", "unidad": "h", "min": 18, "max": 36 },
+      { "indicador": "fm", "nombre": "Relación F/M", "unidad": "d⁻¹", "min": 0.04, "max": 0.15 },
+      { "indicador": "trc_d", "nombre": "Tiempo de retención celular", "unidad": "d", "min": 20, "max": 40 },
+      { "indicador": "sslm", "nombre": "SSLM", "unidad": "mg/L", "min": 2000, "max": 5000 }
+    ] },
+    "sbr": { "criterios": [
+      { "indicador": "modulos", "nombre": "Número de tanques", "unidad": "", "min": 2, "max": null, "estricto": true },
+      { "indicador": "fm", "nombre": "Relación F/M", "unidad": "d⁻¹", "min": 0.04, "max": 0.1 },
+      { "indicador": "trc_d", "nombre": "Tiempo de retención celular", "unidad": "d", "min": 10, "max": 30 },
+      { "indicador": "relacionDecantacion", "nombre": "Volumen que llega por ciclo / volumen de decantación", "unidad": "", "min": null, "max": 1 }
+    ] },
+    "anoxico_aerobio": { "criterios": [
+      { "indicador": "trhAnoxico_h", "nombre": "Tiempo de retención anóxico", "unidad": "h", "min": 1, "max": 3 },
+      { "indicador": "trhAerobio_h", "nombre": "Tiempo de retención aerobio", "unidad": "h", "min": 4, "max": 12 },
+      { "indicador": "recirculacionInterna", "nombre": "Recirculación interna", "unidad": "%", "min": 100, "max": 400 },
+      { "indicador": "trc_d", "nombre": "Tiempo de retención celular", "unidad": "d", "min": 7, "max": 20 }
+    ] },
+    "filtro_percolador": {
+      "variantePor": "tasa",
+      "variantes": {
+        "baja_tasa": [
+          { "indicador": "cargaHidraulica", "nombre": "Carga hidráulica (baja tasa)", "unidad": "m³/m²·d", "min": 1, "max": 4 },
+          { "indicador": "cargaOrganica", "nombre": "Carga orgánica (baja tasa)", "unidad": "kg DBO/m³·d", "min": 0.07, "max": 0.22 }
+        ],
+        "alta_tasa": [
+          { "indicador": "cargaHidraulica", "nombre": "Carga hidráulica (alta tasa)", "unidad": "m³/m²·d", "min": 10, "max": 40 },
+          { "indicador": "cargaOrganica", "nombre": "Carga orgánica (alta tasa)", "unidad": "kg DBO/m³·d", "min": 0.4, "max": 2.4 }
+        ]
+      }
+    },
+    "mbbr": { "criterios": [
+      { "indicador": "llenado", "nombre": "Llenado con medio", "unidad": "%", "min": 25, "max": 67 },
+      { "indicador": "cargaMedio", "nombre": "Carga orgánica sobre el medio", "unidad": "g DBO/m²·d", "min": 5, "max": 15 }
+    ] },
+    "sedimentador_secundario": { "criterios": [
+      { "indicador": "cargaSup_Qmed", "nombre": "Carga superficial a Qmed", "unidad": "m³/m²·d", "min": 16, "max": 28 },
+      { "indicador": "cargaSup_Qmax", "nombre": "Carga superficial a Qmáx", "unidad": "m³/m²·d", "min": 40, "max": 64 },
+      { "indicador": "cargaSolidos", "nombre": "Carga de sólidos a Qmed", "unidad": "kg/m²·h", "min": 4, "max": 6 },
+      { "indicador": "profundidad", "nombre": "Profundidad útil", "unidad": "m", "min": 3.5, "max": 6 }
+    ] },
+    "contacto_cloro": { "criterios": [
+      { "indicador": "contacto_Qmed", "nombre": "Tiempo de contacto a Qmed", "unidad": "min", "min": 30, "max": null },
+      { "indicador": "contacto_Qmax", "nombre": "Tiempo de contacto a Qmáx", "unidad": "min", "min": 15, "max": null },
+      { "indicador": "relacionLA", "nombre": "Relación largo:ancho del recorrido", "unidad": ":1", "min": 20, "max": null }
+    ] },
+    "uv": { "criterios": [
+      { "indicador": "dosis", "nombre": "Dosis UV", "unidad": "mJ/cm²", "min": 30, "max": 100 },
+      { "indicador": "sstEntrada", "nombre": "SST de entrada", "unidad": "mg/L", "min": null, "max": 30 }
+    ] },
+    "ozono": { "criterios": [
+      { "indicador": "dosis", "nombre": "Dosis de ozono", "unidad": "mg/L", "min": 5, "max": 15 },
+      { "indicador": "contacto_min", "nombre": "Tiempo de contacto a Qmed", "unidad": "min", "min": 10, "max": 20 }
+    ] },
+    "osmosis_inversa": { "criterios": [
+      { "indicador": "recuperacion", "nombre": "Recuperación", "unidad": "%", "min": 50, "max": 85 },
+      { "indicador": "flux", "nombre": "Flux de permeado a Qmed", "unidad": "L/m²·h", "min": 15, "max": 25 }
+    ] }
+  }
+}

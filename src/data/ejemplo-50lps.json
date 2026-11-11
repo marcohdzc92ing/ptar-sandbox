@@ -1,0 +1,60 @@
+{
+  "version": 1,
+  "alumno": "",
+  "proyecto": "Ejemplo: lodos activados convencional, 50 L/s",
+  "datos": {
+    "Qmed_Ls": 50,
+    "Qmax_Ls": 110,
+    "Qmin_Ls": 25,
+    "poblacion": 27000,
+    "influente": {
+      "DBO5": 250,
+      "DQO": 500,
+      "SST": 250,
+      "NT": 40,
+      "PT": 8,
+      "GyA": 80,
+      "CF": 10000000,
+      "HH": 5,
+      "T": 20
+    },
+    "terreno": {
+      "largo": 110,
+      "ancho": 70
+    },
+    "separacionMinima_m": 1.5
+  },
+  "unidades": [
+    {"id": "e1", "tipo": "influente", "x": 3, "y": 10, "rot": 0, "forma": "rectangular", "dim": {"largo": 2, "ancho": 2}, "params": {}},
+    {"id": "e2", "tipo": "canal_entrada", "x": 9, "y": 10, "rot": 0, "forma": "rectangular", "dim": {"largo": 6, "ancho": 0.5, "profundidadUtil": 0.25, "bordoLibre": 0.5, "modulos": 1}, "params": {}},
+    {"id": "e3", "tipo": "rejillas_gruesas", "x": 15.5, "y": 10, "rot": 0, "forma": "rectangular", "dim": {"largo": 3, "ancho": 0.4, "profundidadUtil": 0.25, "bordoLibre": 0.5, "modulos": 1}, "params": {"abertura_mm": 40, "espesorBarra_mm": 10}},
+    {"id": "e4", "tipo": "rejillas_finas", "x": 20.5, "y": 10, "rot": 0, "forma": "rectangular", "dim": {"largo": 3, "ancho": 0.4, "profundidadUtil": 0.3, "bordoLibre": 0.5, "modulos": 1}, "params": {"abertura_mm": 10, "espesorBarra_mm": 6}},
+    {"id": "e5", "tipo": "desarenador", "x": 33, "y": 10, "rot": 0, "forma": "rectangular", "dim": {"largo": 18, "ancho": 0.6, "profundidadUtil": 0.28, "bordoLibre": 0.5, "modulos": 1}, "params": {}},
+    {"id": "e6", "tipo": "carcamo_rebombeo", "x": 46, "y": 10, "rot": 0, "forma": "rectangular", "dim": {"largo": 4, "ancho": 4, "diametro": 4.5, "profundidadUtil": 2.8, "bordoLibre": 0.6, "modulos": 1}, "params": {"numBombas": 2, "potenciaBomba_kW": 7.5}},
+    {"id": "e7", "tipo": "sedimentador_primario", "x": 60, "y": 16, "rot": 90, "forma": "circular", "dim": {"largo": 24, "ancho": 6, "diametro": 8.5, "profundidadUtil": 3.3, "bordoLibre": 0.5, "modulos": 2}, "params": {"purga_m3d": 40}},
+    {"id": "e8", "tipo": "lodos_activados", "x": 81, "y": 16, "rot": 0, "forma": "rectangular", "dim": {"largo": 18, "ancho": 7.5, "profundidadUtil": 4, "bordoLibre": 0.5, "modulos": 2}, "params": {"sslm": 3000, "recirculacion": 75, "potencia_kW": 60}},
+    {"id": "e9", "tipo": "sedimentador_secundario", "x": 84, "y": 40, "rot": 0, "forma": "circular", "dim": {"largo": 30, "ancho": 8, "diametro": 11.2, "profundidadUtil": 4, "bordoLibre": 0.5, "modulos": 2}, "params": {"purga_m3d": 60}},
+    {"id": "e10", "tipo": "contacto_cloro", "x": 60, "y": 40, "rot": 180, "forma": "rectangular", "dim": {"largo": 10, "ancho": 5, "profundidadUtil": 2, "bordoLibre": 0.4, "modulos": 1}, "params": {"numCanales": 5, "dosis_mgL": 8}},
+    {"id": "e11", "tipo": "descarga_cuerpo_receptor", "x": 45, "y": 40, "rot": 180, "forma": "rectangular", "dim": {"largo": 3, "ancho": 3}, "params": {"receptor": "rios"}},
+    {"id": "e12", "tipo": "espesador", "x": 66, "y": 58, "rot": 0, "forma": "circular", "dim": {"diametro": 6, "profundidadUtil": 3.5, "bordoLibre": 0.5, "modulos": 1}, "params": {"sobrenadante_pct": 60}},
+    {"id": "e13", "tipo": "digestor", "x": 84, "y": 58, "rot": 0, "forma": "circular", "dim": {"diametro": 10, "profundidadUtil": 6, "bordoLibre": 0.8, "modulos": 1}, "params": {"tipo": "anaerobio", "potencia_kW": 15}},
+    {"id": "e14", "tipo": "lechos_secado", "x": 35, "y": 58, "rot": 90, "forma": "rectangular", "dim": {"largo": 15, "ancho": 6, "profundidadUtil": 0.4, "bordoLibre": 0.3, "modulos": 4}, "params": {"lixiviado_pct": 50}}
+  ],
+  "tuberias": [
+    {"id": "p1", "desde": {"unidad": "e1", "puerto": "out"}, "hasta": {"unidad": "e2", "puerto": "in"}, "fluido": "agua", "dn_mm": 250, "material": "PVC", "regimen": "gravedad", "puntos": []},
+    {"id": "p2", "desde": {"unidad": "e2", "puerto": "out"}, "hasta": {"unidad": "e3", "puerto": "in"}, "fluido": "agua", "dn_mm": 250, "material": "PVC", "regimen": "gravedad", "puntos": []},
+    {"id": "p3", "desde": {"unidad": "e3", "puerto": "out"}, "hasta": {"unidad": "e4", "puerto": "in"}, "fluido": "agua", "dn_mm": 250, "material": "PVC", "regimen": "gravedad", "puntos": []},
+    {"id": "p4", "desde": {"unidad": "e4", "puerto": "out"}, "hasta": {"unidad": "e5", "puerto": "in"}, "fluido": "agua", "dn_mm": 250, "material": "PVC", "regimen": "gravedad", "puntos": []},
+    {"id": "p5", "desde": {"unidad": "e5", "puerto": "out"}, "hasta": {"unidad": "e6", "puerto": "in"}, "fluido": "agua", "dn_mm": 250, "material": "PVC", "regimen": "gravedad", "puntos": []},
+    {"id": "p6", "desde": {"unidad": "e6", "puerto": "out"}, "hasta": {"unidad": "e7", "puerto": "in"}, "fluido": "agua", "dn_mm": 250, "material": "PVC", "regimen": "presion", "puntos": []},
+    {"id": "p7", "desde": {"unidad": "e7", "puerto": "out"}, "hasta": {"unidad": "e8", "puerto": "in"}, "fluido": "agua", "dn_mm": 250, "material": "PVC", "regimen": "gravedad", "puntos": []},
+    {"id": "p8", "desde": {"unidad": "e8", "puerto": "out"}, "hasta": {"unidad": "e9", "puerto": "in"}, "fluido": "agua", "dn_mm": 300, "material": "PVC", "regimen": "gravedad", "puntos": []},
+    {"id": "p9", "desde": {"unidad": "e9", "puerto": "ras"}, "hasta": {"unidad": "e8", "puerto": "ras"}, "fluido": "recirculacion", "dn_mm": 200, "material": "PVC", "regimen": "presion", "puntos": []},
+    {"id": "p10", "desde": {"unidad": "e9", "puerto": "out"}, "hasta": {"unidad": "e10", "puerto": "in"}, "fluido": "agua", "dn_mm": 250, "material": "PVC", "regimen": "gravedad", "puntos": [[97,47.5]]},
+    {"id": "p11", "desde": {"unidad": "e10", "puerto": "out"}, "hasta": {"unidad": "e11", "puerto": "in"}, "fluido": "agua", "dn_mm": 250, "material": "PVC", "regimen": "gravedad", "puntos": []},
+    {"id": "p12", "desde": {"unidad": "e7", "puerto": "lodos"}, "hasta": {"unidad": "e12", "puerto": "in"}, "fluido": "lodos", "dn_mm": 100, "material": "PVC", "regimen": "presion", "puntos": []},
+    {"id": "p13", "desde": {"unidad": "e9", "puerto": "lodos"}, "hasta": {"unidad": "e12", "puerto": "in"}, "fluido": "lodos", "dn_mm": 100, "material": "PVC", "regimen": "presion", "puntos": []},
+    {"id": "p14", "desde": {"unidad": "e12", "puerto": "out"}, "hasta": {"unidad": "e13", "puerto": "in"}, "fluido": "lodos", "dn_mm": 100, "material": "PVC", "regimen": "presion", "puntos": []},
+    {"id": "p15", "desde": {"unidad": "e13", "puerto": "out"}, "hasta": {"unidad": "e14", "puerto": "in"}, "fluido": "lodos", "dn_mm": 100, "material": "PVC", "regimen": "presion", "puntos": []}
+  ]
+}

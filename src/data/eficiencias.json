@@ -1,0 +1,156 @@
+{
+  "version": 1,
+  "nota": "Eficiencias típicas de remoción por unidad. 'remocion' es fracción (0–1); 'log' son unidades logarítmicas de remoción (para coliformes fecales y huevos de helminto). Valores de referencia dentro de los intervalos usuales de la literatura (Metcalf & Eddy; MAPAS CONAGUA); el profesor debe revisarlos. La remoción de un proceso de lodos activados se reparte entre el reactor (materia soluble) y el sedimentador secundario (sólidos).",
+  "parametros": [
+    "DBO5",
+    "DQO",
+    "SST",
+    "NT",
+    "PT",
+    "GyA",
+    "CF",
+    "HH"
+  ],
+  "unidades": {
+    "rejillas_finas": {
+      "SST": { "remocion": 0.05 },
+      "verificado": false,
+      "fuente": "Valor de referencia dentro de intervalos usuales de la literatura; revisar."
+    },
+    "hidrocriba": {
+      "DBO5": { "remocion": 0.05 },
+      "DQO": { "remocion": 0.05 },
+      "SST": { "remocion": 0.15 },
+      "GyA": { "remocion": 0.1 },
+      "verificado": false,
+      "fuente": "Valor de referencia dentro de intervalos usuales de la literatura; revisar."
+    },
+    "desarenador": {
+      "SST": { "remocion": 0.05 },
+      "verificado": false,
+      "fuente": "Valor de referencia dentro de intervalos usuales de la literatura; revisar."
+    },
+    "sedimentador_primario": {
+      "DBO5": { "remocion": 0.3 },
+      "DQO": { "remocion": 0.3 },
+      "SST": { "remocion": 0.6 },
+      "NT": { "remocion": 0.1 },
+      "PT": { "remocion": 0.1 },
+      "GyA": { "remocion": 0.5 },
+      "CF": { "log": 0.3 },
+      "HH": { "log": 0.5 },
+      "verificado": false,
+      "fuente": "Metcalf & Eddy: sedimentación primaria remueve 25–40 % de DBO y 50–70 % de SST."
+    },
+    "lodos_activados": {
+      "DBO5": { "remocion": 0.85 },
+      "DQO": { "remocion": 0.8 },
+      "NT": { "remocion": 0.25 },
+      "PT": { "remocion": 0.15 },
+      "GyA": { "remocion": 0.8 },
+      "CF": { "log": 1 },
+      "verificado": false,
+      "fuente": "Metcalf & Eddy: lodos activados convencional (reactor + sedimentador) remueve 85–95 % de DBO. Se reparte entre reactor y sedimentador secundario."
+    },
+    "aireacion_extendida": {
+      "DBO5": { "remocion": 0.9 },
+      "DQO": { "remocion": 0.85 },
+      "NT": { "remocion": 0.35 },
+      "PT": { "remocion": 0.15 },
+      "GyA": { "remocion": 0.8 },
+      "CF": { "log": 1 },
+      "verificado": false,
+      "fuente": "Metcalf & Eddy: aireación extendida, 90–95 % de DBO en el proceso completo."
+    },
+    "anoxico_aerobio": {
+      "DBO5": { "remocion": 0.88 },
+      "DQO": { "remocion": 0.82 },
+      "NT": { "remocion": 0.7 },
+      "PT": { "remocion": 0.2 },
+      "GyA": { "remocion": 0.8 },
+      "CF": { "log": 1 },
+      "verificado": false,
+      "fuente": "Valor de referencia dentro de intervalos usuales de la literatura; revisar."
+    },
+    "sbr": {
+      "DBO5": { "remocion": 0.92 },
+      "DQO": { "remocion": 0.87 },
+      "SST": { "remocion": 0.88 },
+      "NT": { "remocion": 0.6 },
+      "PT": { "remocion": 0.25 },
+      "GyA": { "remocion": 0.85 },
+      "CF": { "log": 1.5 },
+      "HH": { "log": 1 },
+      "verificado": false,
+      "fuente": "Valor de referencia dentro de intervalos usuales de la literatura; revisar."
+    },
+    "filtro_percolador": {
+      "DBO5": { "remocion": 0.75 },
+      "DQO": { "remocion": 0.7 },
+      "NT": { "remocion": 0.2 },
+      "PT": { "remocion": 0.1 },
+      "GyA": { "remocion": 0.6 },
+      "CF": { "log": 0.8 },
+      "verificado": false,
+      "fuente": "Valor de referencia dentro de intervalos usuales de la literatura; revisar."
+    },
+    "mbbr": {
+      "DBO5": { "remocion": 0.85 },
+      "DQO": { "remocion": 0.8 },
+      "NT": { "remocion": 0.3 },
+      "PT": { "remocion": 0.15 },
+      "GyA": { "remocion": 0.75 },
+      "CF": { "log": 1 },
+      "verificado": false,
+      "fuente": "Valor de referencia dentro de intervalos usuales de la literatura; revisar."
+    },
+    "sedimentador_secundario": {
+      "DBO5": { "remocion": 0.3 },
+      "DQO": { "remocion": 0.3 },
+      "SST": { "remocion": 0.8 },
+      "PT": { "remocion": 0.1 },
+      "CF": { "log": 0.5 },
+      "HH": { "log": 1 },
+      "verificado": false,
+      "fuente": "Complemento de la remoción del proceso biológico: retiene los sólidos del licor mezclado."
+    },
+    "filtracion": {
+      "DBO5": { "remocion": 0.4 },
+      "DQO": { "remocion": 0.3 },
+      "SST": { "remocion": 0.75 },
+      "PT": { "remocion": 0.2 },
+      "CF": { "log": 0.5 },
+      "HH": { "log": 2 },
+      "verificado": false,
+      "fuente": "Valor de referencia dentro de intervalos usuales de la literatura; revisar."
+    },
+    "contacto_cloro": {
+      "CF": { "log": 4 },
+      "verificado": false,
+      "fuente": "Inactivación típica de coliformes fecales de 2 a 6 log según dosis y tiempo de contacto; se usa 4 log."
+    },
+    "uv": {
+      "CF": { "log": 3.5 },
+      "verificado": false,
+      "fuente": "Valor de referencia dentro de intervalos usuales de la literatura; revisar."
+    },
+    "ozono": {
+      "DQO": { "remocion": 0.1 },
+      "CF": { "log": 3.5 },
+      "verificado": false,
+      "fuente": "Valor de referencia dentro de intervalos usuales de la literatura; revisar."
+    },
+    "osmosis_inversa": {
+      "DBO5": { "remocion": 0.95 },
+      "DQO": { "remocion": 0.95 },
+      "SST": { "remocion": 0.99 },
+      "NT": { "remocion": 0.9 },
+      "PT": { "remocion": 0.98 },
+      "GyA": { "remocion": 0.95 },
+      "CF": { "log": 5 },
+      "HH": { "log": 5 },
+      "verificado": false,
+      "fuente": "Valor de referencia dentro de intervalos usuales de la literatura; revisar."
+    }
+  }
+}

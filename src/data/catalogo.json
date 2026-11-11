@@ -1,0 +1,437 @@
+{
+  "version": 1,
+  "etapas": [
+    { "id": "pretratamiento", "nombre": "Pretratamiento" },
+    { "id": "primario", "nombre": "Primario" },
+    { "id": "secundario", "nombre": "Secundario" },
+    { "id": "terciario", "nombre": "Terciario" },
+    { "id": "lodos", "nombre": "Lodos" },
+    { "id": "destino", "nombre": "Destino final" }
+  ],
+  "unidades": [
+    {
+      "id": "influente", "nombre": "Influente (llegada del colector)", "etapa": "pretratamiento",
+      "formas": ["rectangular"], "esFuente": true,
+      "dimensionesDefecto": { "largo": 2, "ancho": 2 },
+      "puertos": [
+        { "id": "out", "nombre": "Salida", "tipo": "salida", "fluido": "agua", "lado": "E", "obligatorio": true }
+      ],
+      "parametros": [], "generaLodos": false, "equipos": [], "visual": "fuente", "color": "#8a6d3b"
+    },
+    {
+      "id": "canal_entrada", "nombre": "Canal de entrada", "etapa": "pretratamiento",
+      "formas": ["rectangular"],
+      "dimensionesDefecto": { "largo": 6, "ancho": 0.6, "profundidadUtil": 0.3, "bordoLibre": 0.5, "modulos": 1 },
+      "puertos": [
+        { "id": "in", "nombre": "Entrada", "tipo": "entrada", "fluido": "agua", "lado": "O", "obligatorio": true },
+        { "id": "out", "nombre": "Salida", "tipo": "salida", "fluido": "agua", "lado": "E", "obligatorio": true }
+      ],
+      "parametros": [], "generaLodos": false, "equipos": [], "visual": "canal", "color": "#7a8f6a"
+    },
+    {
+      "id": "rejillas_gruesas", "nombre": "Rejillas gruesas", "etapa": "pretratamiento",
+      "formas": ["rectangular"],
+      "dimensionesDefecto": { "largo": 3, "ancho": 0.6, "profundidadUtil": 0.3, "bordoLibre": 0.5, "modulos": 1 },
+      "puertos": [
+        { "id": "in", "nombre": "Entrada", "tipo": "entrada", "fluido": "agua", "lado": "O", "obligatorio": true },
+        { "id": "out", "nombre": "Salida", "tipo": "salida", "fluido": "agua", "lado": "E", "obligatorio": true }
+      ],
+      "parametros": [
+        { "id": "abertura_mm", "nombre": "Abertura entre barras", "unidad": "mm", "tipo": "numero", "defecto": 40, "min": 1 },
+        { "id": "espesorBarra_mm", "nombre": "Espesor de barra", "unidad": "mm", "tipo": "numero", "defecto": 10, "min": 1 }
+      ],
+      "generaLodos": false, "equipos": ["rejilla"], "visual": "rejilla", "color": "#7a8f6a"
+    },
+    {
+      "id": "rejillas_finas", "nombre": "Rejillas finas", "etapa": "pretratamiento",
+      "formas": ["rectangular"],
+      "dimensionesDefecto": { "largo": 3, "ancho": 0.6, "profundidadUtil": 0.3, "bordoLibre": 0.5, "modulos": 1 },
+      "puertos": [
+        { "id": "in", "nombre": "Entrada", "tipo": "entrada", "fluido": "agua", "lado": "O", "obligatorio": true },
+        { "id": "out", "nombre": "Salida", "tipo": "salida", "fluido": "agua", "lado": "E", "obligatorio": true }
+      ],
+      "parametros": [
+        { "id": "abertura_mm", "nombre": "Abertura entre barras", "unidad": "mm", "tipo": "numero", "defecto": 10, "min": 1 },
+        { "id": "espesorBarra_mm", "nombre": "Espesor de barra", "unidad": "mm", "tipo": "numero", "defecto": 6, "min": 1 }
+      ],
+      "generaLodos": false, "equipos": ["rejilla"], "visual": "rejilla", "color": "#7a8f6a"
+    },
+    {
+      "id": "desarenador", "nombre": "Desarenador horizontal", "etapa": "pretratamiento",
+      "formas": ["rectangular"],
+      "dimensionesDefecto": { "largo": 18, "ancho": 0.6, "profundidadUtil": 0.3, "bordoLibre": 0.5, "modulos": 1 },
+      "puertos": [
+        { "id": "in", "nombre": "Entrada", "tipo": "entrada", "fluido": "agua", "lado": "O", "obligatorio": true },
+        { "id": "out", "nombre": "Salida", "tipo": "salida", "fluido": "agua", "lado": "E", "obligatorio": true }
+      ],
+      "parametros": [], "generaLodos": false, "equipos": [], "visual": "canal", "color": "#9a8f5a"
+    },
+    {
+      "id": "hidrocriba", "nombre": "Hidrocriba", "etapa": "pretratamiento",
+      "formas": ["rectangular"],
+      "dimensionesDefecto": { "largo": 2, "ancho": 1.5, "altura": 2, "modulos": 1 },
+      "puertos": [
+        { "id": "in", "nombre": "Entrada", "tipo": "entrada", "fluido": "agua", "lado": "O", "obligatorio": true },
+        { "id": "out", "nombre": "Salida", "tipo": "salida", "fluido": "agua", "lado": "E", "obligatorio": true }
+      ],
+      "parametros": [
+        { "id": "abertura_mm", "nombre": "Abertura de malla", "unidad": "mm", "tipo": "numero", "defecto": 1, "min": 0.05 },
+        { "id": "cargaFabricante", "nombre": "Carga admisible por metro de ancho (fabricante)", "unidad": "m³/h·m", "tipo": "numero", "defecto": 150, "min": 1 }
+      ],
+      "generaLodos": false, "equipos": ["hidrocriba"], "visual": "equipo", "color": "#8794a3"
+    },
+    {
+      "id": "carcamo_rebombeo", "nombre": "Cárcamo de rebombeo", "etapa": "pretratamiento",
+      "formas": ["rectangular", "circular"],
+      "dimensionesDefecto": { "largo": 4, "ancho": 4, "diametro": 4.5, "profundidadUtil": 2.8, "bordoLibre": 0.6, "modulos": 1 },
+      "puertos": [
+        { "id": "in", "nombre": "Entrada", "tipo": "entrada", "fluido": "agua", "lado": "O", "obligatorio": true },
+        { "id": "out", "nombre": "Salida", "tipo": "salida", "fluido": "agua", "lado": "E", "obligatorio": true }
+      ],
+      "parametros": [
+        { "id": "numBombas", "nombre": "Número de bombas (operación + reserva)", "tipo": "entero", "defecto": 2, "min": 1 },
+        { "id": "potenciaBomba_kW", "nombre": "Potencia por bomba", "unidad": "kW", "tipo": "numero", "defecto": 7.5, "min": 0 }
+      ],
+      "generaLodos": false, "equipos": ["bomba"], "visual": "carcamo", "color": "#6f8fa6"
+    },
+    {
+      "id": "sedimentador_primario", "nombre": "Sedimentador primario", "etapa": "primario",
+      "formas": ["circular", "rectangular"],
+      "dimensionesDefecto": { "largo": 24, "ancho": 6, "diametro": 12, "profundidadUtil": 3.5, "bordoLibre": 0.5, "modulos": 1 },
+      "puertos": [
+        { "id": "in", "nombre": "Entrada", "tipo": "entrada", "fluido": "agua", "lado": "O", "obligatorio": true },
+        { "id": "out", "nombre": "Efluente", "tipo": "salida", "fluido": "agua", "lado": "E", "obligatorio": true },
+        { "id": "lodos", "nombre": "Lodo primario", "tipo": "salida", "fluido": "lodos", "lado": "S", "obligatorio": true,
+          "caudal": { "modo": "fijo_m3d", "param": "purga_m3d" } }
+      ],
+      "parametros": [
+        { "id": "purga_m3d", "nombre": "Caudal de purga de lodo primario", "unidad": "m³/d", "tipo": "numero", "defecto": 40, "min": 0 }
+      ],
+      "generaLodos": true, "equipos": ["mecanismo_sedimentador"], "visual": "sedimentador", "color": "#6b8e9e"
+    },
+    {
+      "id": "lodos_activados", "nombre": "Lodos activados convencional", "etapa": "secundario",
+      "formas": ["rectangular"],
+      "dimensionesDefecto": { "largo": 18, "ancho": 6, "profundidadUtil": 4, "bordoLibre": 0.5, "modulos": 1 },
+      "puertos": [
+        { "id": "in", "nombre": "Entrada", "tipo": "entrada", "fluido": "agua", "lado": "O", "obligatorio": true },
+        { "id": "out", "nombre": "Licor mezclado", "tipo": "salida", "fluido": "agua", "lado": "E", "obligatorio": true },
+        { "id": "ras", "nombre": "Recirculación de lodos", "tipo": "entrada", "fluido": "recirculacion", "lado": "S", "pos": 0.15, "obligatorio": true,
+          "caudal": { "modo": "demanda", "param": "recirculacion" } },
+        { "id": "aire", "nombre": "Aire", "tipo": "entrada", "fluido": "aire", "lado": "N", "obligatorio": false }
+      ],
+      "parametros": [
+        { "id": "sslm", "nombre": "SSLM", "unidad": "mg/L", "tipo": "numero", "defecto": 3000, "min": 0 },
+        { "id": "recirculacion", "nombre": "Recirculación de lodos", "unidad": "% de Q", "tipo": "numero", "defecto": 75, "min": 0 },
+        { "id": "potencia_kW", "nombre": "Potencia instalada de aireación", "unidad": "kW", "tipo": "numero", "defecto": 60, "min": 0 }
+      ],
+      "generaLodos": false, "equipos": ["soplador", "difusores"], "visual": "aireado", "color": "#8b7355"
+    },
+    {
+      "id": "sbr", "nombre": "Reactor SBR", "etapa": "secundario",
+      "formas": ["rectangular", "circular"],
+      "dimensionesDefecto": { "largo": 15, "ancho": 10, "diametro": 14, "profundidadUtil": 5, "bordoLibre": 0.6, "modulos": 2 },
+      "puertos": [
+        { "id": "in", "nombre": "Entrada", "tipo": "entrada", "fluido": "agua", "lado": "O", "obligatorio": true },
+        { "id": "out", "nombre": "Efluente decantado", "tipo": "salida", "fluido": "agua", "lado": "E", "obligatorio": true },
+        { "id": "lodos", "nombre": "Purga de lodos", "tipo": "salida", "fluido": "lodos", "lado": "S", "obligatorio": true,
+          "caudal": { "modo": "fijo_m3d", "param": "purga_m3d" } },
+        { "id": "aire", "nombre": "Aire", "tipo": "entrada", "fluido": "aire", "lado": "N", "obligatorio": false }
+      ],
+      "parametros": [
+        { "id": "sslm", "nombre": "SSLM", "unidad": "mg/L", "tipo": "numero", "defecto": 3500, "min": 0 },
+        { "id": "ciclo_h", "nombre": "Duración del ciclo", "unidad": "h", "tipo": "numero", "defecto": 6, "min": 0.5 },
+        { "id": "decantacion_pct", "nombre": "Volumen de decantación", "unidad": "% del volumen", "tipo": "numero", "defecto": 30, "min": 1, "max": 90 },
+        { "id": "purga_m3d", "nombre": "Caudal de purga de lodos", "unidad": "m³/d", "tipo": "numero", "defecto": 60, "min": 0 },
+        { "id": "potencia_kW", "nombre": "Potencia instalada de aireación", "unidad": "kW", "tipo": "numero", "defecto": 60, "min": 0 }
+      ],
+      "generaLodos": true, "equipos": ["soplador", "difusores", "decantador"], "visual": "aireado", "color": "#8b7355"
+    },
+    {
+      "id": "aireacion_extendida", "nombre": "Aireación extendida", "etapa": "secundario",
+      "formas": ["rectangular"],
+      "dimensionesDefecto": { "largo": 30, "ancho": 10, "profundidadUtil": 4.5, "bordoLibre": 0.5, "modulos": 1 },
+      "puertos": [
+        { "id": "in", "nombre": "Entrada", "tipo": "entrada", "fluido": "agua", "lado": "O", "obligatorio": true },
+        { "id": "out", "nombre": "Licor mezclado", "tipo": "salida", "fluido": "agua", "lado": "E", "obligatorio": true },
+        { "id": "ras", "nombre": "Recirculación de lodos", "tipo": "entrada", "fluido": "recirculacion", "lado": "S", "pos": 0.15, "obligatorio": true,
+          "caudal": { "modo": "demanda", "param": "recirculacion" } },
+        { "id": "aire", "nombre": "Aire", "tipo": "entrada", "fluido": "aire", "lado": "N", "obligatorio": false }
+      ],
+      "parametros": [
+        { "id": "sslm", "nombre": "SSLM", "unidad": "mg/L", "tipo": "numero", "defecto": 3500, "min": 0 },
+        { "id": "recirculacion", "nombre": "Recirculación de lodos", "unidad": "% de Q", "tipo": "numero", "defecto": 100, "min": 0 },
+        { "id": "potencia_kW", "nombre": "Potencia instalada de aireación", "unidad": "kW", "tipo": "numero", "defecto": 90, "min": 0 }
+      ],
+      "generaLodos": false, "equipos": ["soplador", "difusores"], "visual": "aireado", "color": "#8b7355"
+    },
+    {
+      "id": "anoxico_aerobio", "nombre": "Reactor anóxico-aerobio", "etapa": "secundario",
+      "formas": ["rectangular"],
+      "dimensionesDefecto": { "largo": 24, "ancho": 8, "profundidadUtil": 4.5, "bordoLibre": 0.5, "modulos": 1 },
+      "puertos": [
+        { "id": "in", "nombre": "Entrada", "tipo": "entrada", "fluido": "agua", "lado": "O", "obligatorio": true },
+        { "id": "out", "nombre": "Licor mezclado", "tipo": "salida", "fluido": "agua", "lado": "E", "obligatorio": true },
+        { "id": "ras", "nombre": "Recirculación de lodos", "tipo": "entrada", "fluido": "recirculacion", "lado": "S", "pos": 0.15, "obligatorio": true,
+          "caudal": { "modo": "demanda", "param": "recirculacion" } },
+        { "id": "aire", "nombre": "Aire", "tipo": "entrada", "fluido": "aire", "lado": "N", "obligatorio": false }
+      ],
+      "parametros": [
+        { "id": "fraccionAnoxica_pct", "nombre": "Zona anóxica", "unidad": "% del volumen", "tipo": "numero", "defecto": 25, "min": 1, "max": 90 },
+        { "id": "sslm", "nombre": "SSLM", "unidad": "mg/L", "tipo": "numero", "defecto": 3500, "min": 0 },
+        { "id": "recirculacionInterna", "nombre": "Recirculación interna de nitratos", "unidad": "% de Q", "tipo": "numero", "defecto": 200, "min": 0 },
+        { "id": "recirculacion", "nombre": "Recirculación de lodos", "unidad": "% de Q", "tipo": "numero", "defecto": 75, "min": 0 },
+        { "id": "potencia_kW", "nombre": "Potencia instalada de aireación", "unidad": "kW", "tipo": "numero", "defecto": 75, "min": 0 }
+      ],
+      "generaLodos": false, "equipos": ["soplador", "difusores", "mezclador"], "visual": "anoxico", "color": "#8b7355"
+    },
+    {
+      "id": "filtro_percolador", "nombre": "Filtro percolador", "etapa": "secundario",
+      "formas": ["circular"],
+      "dimensionesDefecto": { "diametro": 20, "profundidadUtil": 2, "bordoLibre": 0.4, "modulos": 1 },
+      "puertos": [
+        { "id": "in", "nombre": "Entrada", "tipo": "entrada", "fluido": "agua", "lado": "O", "obligatorio": true },
+        { "id": "out", "nombre": "Salida", "tipo": "salida", "fluido": "agua", "lado": "E", "obligatorio": true },
+        { "id": "recirc", "nombre": "Recirculación", "tipo": "entrada", "fluido": "recirculacion", "lado": "S", "obligatorio": false,
+          "caudal": { "modo": "demanda", "param": "recirculacion" } }
+      ],
+      "parametros": [
+        { "id": "tasa", "nombre": "Tipo de filtro", "tipo": "opcion", "defecto": "alta_tasa",
+          "opciones": [ { "valor": "baja_tasa", "nombre": "Baja tasa" }, { "valor": "alta_tasa", "nombre": "Alta tasa" } ] },
+        { "id": "recirculacion", "nombre": "Recirculación", "unidad": "% de Q", "tipo": "numero", "defecto": 100, "min": 0 }
+      ],
+      "generaLodos": false, "equipos": ["medio_soporte", "distribuidor_rotatorio"], "visual": "medio", "color": "#77705f"
+    },
+    {
+      "id": "mbbr", "nombre": "Reactor MBBR", "etapa": "secundario",
+      "formas": ["rectangular"],
+      "dimensionesDefecto": { "largo": 12, "ancho": 6, "profundidadUtil": 4.5, "bordoLibre": 0.6, "modulos": 1 },
+      "puertos": [
+        { "id": "in", "nombre": "Entrada", "tipo": "entrada", "fluido": "agua", "lado": "O", "obligatorio": true },
+        { "id": "out", "nombre": "Salida", "tipo": "salida", "fluido": "agua", "lado": "E", "obligatorio": true },
+        { "id": "aire", "nombre": "Aire", "tipo": "entrada", "fluido": "aire", "lado": "N", "obligatorio": false }
+      ],
+      "parametros": [
+        { "id": "llenado_pct", "nombre": "Llenado con medio", "unidad": "%", "tipo": "numero", "defecto": 50, "min": 0, "max": 100 },
+        { "id": "areaEspecifica", "nombre": "Área específica del medio", "unidad": "m²/m³", "tipo": "numero", "defecto": 500, "min": 1 },
+        { "id": "potencia_kW", "nombre": "Potencia instalada de aireación", "unidad": "kW", "tipo": "numero", "defecto": 45, "min": 0 }
+      ],
+      "generaLodos": false, "equipos": ["soplador", "difusores", "medio_soporte"], "visual": "aireado", "color": "#8b7355"
+    },
+    {
+      "id": "sopladores", "nombre": "Caseta de sopladores", "etapa": "secundario",
+      "formas": ["rectangular"],
+      "dimensionesDefecto": { "largo": 6, "ancho": 4, "altura": 3, "modulos": 1 },
+      "puertos": [
+        { "id": "aire", "nombre": "Aire", "tipo": "salida", "fluido": "aire", "lado": "E", "obligatorio": true }
+      ],
+      "parametros": [], "generaLodos": false, "equipos": [], "visual": "equipo", "color": "#9aa5b1"
+    },
+    {
+      "id": "sedimentador_secundario", "nombre": "Sedimentador secundario", "etapa": "secundario",
+      "formas": ["circular", "rectangular"],
+      "dimensionesDefecto": { "largo": 30, "ancho": 8, "diametro": 16, "profundidadUtil": 4, "bordoLibre": 0.5, "modulos": 1 },
+      "puertos": [
+        { "id": "in", "nombre": "Entrada", "tipo": "entrada", "fluido": "agua", "lado": "O", "obligatorio": true },
+        { "id": "out", "nombre": "Efluente clarificado", "tipo": "salida", "fluido": "agua", "lado": "E", "obligatorio": true },
+        { "id": "ras", "nombre": "Recirculación de lodos", "tipo": "salida", "fluido": "recirculacion", "lado": "N", "obligatorio": false,
+          "caudal": { "modo": "demanda" } },
+        { "id": "lodos", "nombre": "Purga de lodos", "tipo": "salida", "fluido": "lodos", "lado": "S", "obligatorio": true,
+          "caudal": { "modo": "fijo_m3d", "param": "purga_m3d" } }
+      ],
+      "parametros": [
+        { "id": "purga_m3d", "nombre": "Caudal de purga de lodos", "unidad": "m³/d", "tipo": "numero", "defecto": 60, "min": 0 }
+      ],
+      "generaLodos": true, "equipos": ["mecanismo_sedimentador", "bomba_lodos"], "visual": "sedimentador", "color": "#5b8fb9"
+    },
+    {
+      "id": "filtracion", "nombre": "Filtración (arena o membrana)", "etapa": "terciario",
+      "formas": ["rectangular"],
+      "dimensionesDefecto": { "largo": 6, "ancho": 4, "profundidadUtil": 2.5, "bordoLibre": 0.5, "modulos": 2 },
+      "puertos": [
+        { "id": "in", "nombre": "Entrada", "tipo": "entrada", "fluido": "agua", "lado": "O", "obligatorio": true },
+        { "id": "out", "nombre": "Filtrado", "tipo": "salida", "fluido": "agua", "lado": "E", "obligatorio": true }
+      ],
+      "parametros": [], "generaLodos": false, "equipos": ["medio_filtrante"], "visual": "lechos", "color": "#c9b68a"
+    },
+    {
+      "id": "contacto_cloro", "nombre": "Tanque de contacto de cloro", "etapa": "terciario",
+      "formas": ["rectangular"],
+      "dimensionesDefecto": { "largo": 10, "ancho": 5, "profundidadUtil": 2, "bordoLibre": 0.4, "modulos": 1 },
+      "puertos": [
+        { "id": "in", "nombre": "Entrada", "tipo": "entrada", "fluido": "agua", "lado": "O", "obligatorio": true },
+        { "id": "out", "nombre": "Salida", "tipo": "salida", "fluido": "agua", "lado": "E", "obligatorio": true }
+      ],
+      "parametros": [
+        { "id": "numCanales", "nombre": "Número de canales del serpentín", "tipo": "entero", "defecto": 5, "min": 1 },
+        { "id": "dosis_mgL", "nombre": "Dosis de cloro", "unidad": "mg/L", "tipo": "numero", "defecto": 8, "min": 0 }
+      ],
+      "generaLodos": false, "equipos": ["cloracion"], "visual": "serpentin", "color": "#4aa3a3"
+    },
+    {
+      "id": "uv", "nombre": "Desinfección UV", "etapa": "terciario",
+      "formas": ["rectangular"],
+      "dimensionesDefecto": { "largo": 5, "ancho": 1.5, "altura": 1.5, "modulos": 1 },
+      "puertos": [
+        { "id": "in", "nombre": "Entrada", "tipo": "entrada", "fluido": "agua", "lado": "O", "obligatorio": true },
+        { "id": "out", "nombre": "Salida", "tipo": "salida", "fluido": "agua", "lado": "E", "obligatorio": true }
+      ],
+      "parametros": [
+        { "id": "dosis_mJcm2", "nombre": "Dosis UV", "unidad": "mJ/cm²", "tipo": "numero", "defecto": 40, "min": 0 },
+        { "id": "potencia_kW", "nombre": "Potencia instalada", "unidad": "kW", "tipo": "numero", "defecto": 10, "min": 0 }
+      ],
+      "generaLodos": false, "equipos": ["lamparas_uv"], "visual": "equipo", "color": "#7b68b5"
+    },
+    {
+      "id": "ozono", "nombre": "Ozonación", "etapa": "terciario",
+      "formas": ["rectangular"],
+      "dimensionesDefecto": { "largo": 8, "ancho": 3, "profundidadUtil": 4, "bordoLibre": 0.5, "modulos": 1 },
+      "puertos": [
+        { "id": "in", "nombre": "Entrada", "tipo": "entrada", "fluido": "agua", "lado": "O", "obligatorio": true },
+        { "id": "out", "nombre": "Salida", "tipo": "salida", "fluido": "agua", "lado": "E", "obligatorio": true }
+      ],
+      "parametros": [
+        { "id": "dosis_mgL", "nombre": "Dosis de ozono", "unidad": "mg/L", "tipo": "numero", "defecto": 8, "min": 0 },
+        { "id": "potencia_kW", "nombre": "Potencia del generador", "unidad": "kW", "tipo": "numero", "defecto": 30, "min": 0 }
+      ],
+      "generaLodos": false, "equipos": ["generador_ozono"], "visual": "cubierto", "color": "#5aa0c8"
+    },
+    {
+      "id": "osmosis_inversa", "nombre": "Ósmosis inversa", "etapa": "terciario",
+      "formas": ["rectangular"],
+      "dimensionesDefecto": { "largo": 8, "ancho": 3, "altura": 2.5, "modulos": 1 },
+      "puertos": [
+        { "id": "in", "nombre": "Alimentación", "tipo": "entrada", "fluido": "agua", "lado": "O", "obligatorio": true },
+        { "id": "out", "nombre": "Permeado", "tipo": "salida", "fluido": "agua", "lado": "E", "obligatorio": true },
+        { "id": "rechazo", "nombre": "Rechazo", "tipo": "salida", "fluido": "rechazo", "lado": "S", "obligatorio": true,
+          "caudal": { "modo": "fraccion", "param": "recuperacion_pct", "complemento": true } }
+      ],
+      "parametros": [
+        { "id": "recuperacion_pct", "nombre": "Recuperación", "unidad": "%", "tipo": "numero", "defecto": 75, "min": 1, "max": 99 },
+        { "id": "areaMembrana_m2", "nombre": "Área total de membrana", "unidad": "m²", "tipo": "numero", "defecto": 5000, "min": 1 },
+        { "id": "potencia_kW", "nombre": "Potencia instalada de bombeo", "unidad": "kW", "tipo": "numero", "defecto": 75, "min": 0 }
+      ],
+      "generaLodos": false, "equipos": ["membranas", "bomba_alta_presion"], "visual": "equipo", "color": "#4f7fbf"
+    },
+    {
+      "id": "espesador", "nombre": "Espesador de lodos", "etapa": "lodos",
+      "formas": ["circular"],
+      "dimensionesDefecto": { "diametro": 6, "profundidadUtil": 3.5, "bordoLibre": 0.5, "modulos": 1 },
+      "puertos": [
+        { "id": "in", "nombre": "Lodos", "tipo": "entrada", "fluido": "lodos", "lado": "O", "obligatorio": true },
+        { "id": "out", "nombre": "Lodo espesado", "tipo": "salida", "fluido": "lodos", "lado": "E", "obligatorio": true },
+        { "id": "sobrenadante", "nombre": "Sobrenadante", "tipo": "salida", "fluido": "agua", "lado": "N", "obligatorio": false,
+          "caudal": { "modo": "fraccion", "param": "sobrenadante_pct" } }
+      ],
+      "parametros": [
+        { "id": "sobrenadante_pct", "nombre": "Sobrenadante", "unidad": "% del caudal de lodos", "tipo": "numero", "defecto": 60, "min": 0, "max": 100 }
+      ], "generaLodos": false, "equipos": ["mecanismo_sedimentador"], "visual": "sedimentador", "color": "#7d6a4f"
+    },
+    {
+      "id": "digestor", "nombre": "Digestor de lodos", "etapa": "lodos",
+      "formas": ["circular"],
+      "dimensionesDefecto": { "diametro": 10, "profundidadUtil": 6, "bordoLibre": 0.8, "modulos": 1 },
+      "puertos": [
+        { "id": "in", "nombre": "Lodos", "tipo": "entrada", "fluido": "lodos", "lado": "O", "obligatorio": true },
+        { "id": "out", "nombre": "Lodo digerido", "tipo": "salida", "fluido": "lodos", "lado": "E", "obligatorio": true }
+      ],
+      "parametros": [
+        { "id": "tipo", "nombre": "Tipo de digestión", "tipo": "opcion", "defecto": "anaerobio",
+          "opciones": [ { "valor": "anaerobio", "nombre": "Anaerobia" }, { "valor": "aerobio", "nombre": "Aerobia" } ] },
+        { "id": "potencia_kW", "nombre": "Potencia instalada (mezcla/aireación)", "unidad": "kW", "tipo": "numero", "defecto": 15, "min": 0 }
+      ],
+      "generaLodos": false, "equipos": ["mezclador"], "visual": "domo", "color": "#6b5b45"
+    },
+    {
+      "id": "lechos_secado", "nombre": "Lechos de secado", "etapa": "lodos",
+      "formas": ["rectangular"],
+      "dimensionesDefecto": { "largo": 15, "ancho": 6, "profundidadUtil": 0.4, "bordoLibre": 0.3, "modulos": 4 },
+      "puertos": [
+        { "id": "in", "nombre": "Lodos", "tipo": "entrada", "fluido": "lodos", "lado": "O", "obligatorio": true },
+        { "id": "lixiviado", "nombre": "Lixiviado", "tipo": "salida", "fluido": "agua", "lado": "E", "obligatorio": false,
+          "caudal": { "modo": "fraccion", "param": "lixiviado_pct" } }
+      ],
+      "parametros": [
+        { "id": "lixiviado_pct", "nombre": "Lixiviado", "unidad": "% del caudal de lodos", "tipo": "numero", "defecto": 50, "min": 0, "max": 100 }
+      ], "generaLodos": false, "equipos": [], "visual": "lechos", "color": "#b89b6a"
+    },
+    {
+      "id": "filtro_prensa", "nombre": "Filtro prensa", "etapa": "lodos",
+      "formas": ["rectangular"],
+      "dimensionesDefecto": { "largo": 6, "ancho": 3, "altura": 3, "modulos": 1 },
+      "puertos": [
+        { "id": "in", "nombre": "Lodos", "tipo": "entrada", "fluido": "lodos", "lado": "O", "obligatorio": true },
+        { "id": "filtrado", "nombre": "Filtrado", "tipo": "salida", "fluido": "agua", "lado": "E", "obligatorio": false,
+          "caudal": { "modo": "fraccion", "param": "filtrado_pct" } }
+      ],
+      "parametros": [
+        { "id": "filtrado_pct", "nombre": "Filtrado", "unidad": "% del caudal de lodos", "tipo": "numero", "defecto": 85, "min": 0, "max": 100 },
+        { "id": "potencia_kW", "nombre": "Potencia instalada", "unidad": "kW", "tipo": "numero", "defecto": 11, "min": 0 }
+      ],
+      "generaLodos": false, "equipos": ["filtro_prensa"], "visual": "equipo", "color": "#8a7f72"
+    },
+    {
+      "id": "descarga_cuerpo_receptor", "nombre": "Descarga a cuerpo receptor o suelo (NOM-001)", "etapa": "destino",
+      "formas": ["rectangular"],
+      "dimensionesDefecto": { "largo": 3, "ancho": 3 },
+      "puertos": [
+        { "id": "in", "nombre": "Entrada", "tipo": "entrada", "fluido": "agua", "lado": "O", "obligatorio": true }
+      ],
+      "parametros": [
+        { "id": "receptor", "nombre": "Tipo de receptor (NOM-001-SEMARNAT-2021)", "tipo": "opcion", "defecto": "rios",
+          "opciones": [
+            { "valor": "rios", "nombre": "Ríos, arroyos, canales, drenes" },
+            { "valor": "embalses", "nombre": "Embalses, lagos y lagunas" },
+            { "valor": "zonas_marinas", "nombre": "Zonas marinas mexicanas" },
+            { "valor": "suelo_riego_areas_verdes", "nombre": "Suelo: riego de áreas verdes" },
+            { "valor": "suelo_infiltracion", "nombre": "Suelo: infiltración y otros riegos" },
+            { "valor": "suelo_carstico", "nombre": "Suelo cárstico" }
+          ] }
+      ],
+      "generaLodos": false, "equipos": [], "visual": "destino", "color": "#2f7fbf"
+    },
+    {
+      "id": "descarga_alcantarillado", "nombre": "Descarga a alcantarillado (NOM-002)", "etapa": "destino",
+      "formas": ["rectangular"],
+      "dimensionesDefecto": { "largo": 3, "ancho": 3 },
+      "puertos": [
+        { "id": "in", "nombre": "Entrada", "tipo": "entrada", "fluido": "agua", "lado": "O", "obligatorio": true }
+      ],
+      "parametros": [], "generaLodos": false, "equipos": [], "visual": "destino", "color": "#6d6d6d"
+    },
+    {
+      "id": "reuso_directo", "nombre": "Reúso con contacto directo (NOM-003)", "etapa": "destino",
+      "formas": ["rectangular"],
+      "dimensionesDefecto": { "largo": 3, "ancho": 3 },
+      "puertos": [
+        { "id": "in", "nombre": "Entrada", "tipo": "entrada", "fluido": "agua", "lado": "O", "obligatorio": true }
+      ],
+      "parametros": [], "generaLodos": false, "equipos": [], "visual": "destino", "color": "#2e9e7a"
+    },
+    {
+      "id": "reuso_indirecto", "nombre": "Reúso con contacto indirecto u ocasional (NOM-003)", "etapa": "destino",
+      "formas": ["rectangular"],
+      "dimensionesDefecto": { "largo": 3, "ancho": 3 },
+      "puertos": [
+        { "id": "in", "nombre": "Entrada", "tipo": "entrada", "fluido": "agua", "lado": "O", "obligatorio": true }
+      ],
+      "parametros": [], "generaLodos": false, "equipos": [], "visual": "destino", "color": "#4fae8f"
+    },
+    {
+      "id": "riego", "nombre": "Riego (NOM-003)", "etapa": "destino",
+      "formas": ["rectangular"],
+      "dimensionesDefecto": { "largo": 3, "ancho": 3 },
+      "puertos": [
+        { "id": "in", "nombre": "Entrada", "tipo": "entrada", "fluido": "agua", "lado": "O", "obligatorio": true }
+      ],
+      "parametros": [
+        { "id": "contacto", "nombre": "Tipo de contacto (NOM-003-SEMARNAT-1997)", "tipo": "opcion", "defecto": "indirecto",
+          "opciones": [
+            { "valor": "directo", "nombre": "Servicios al público con contacto directo" },
+            { "valor": "indirecto", "nombre": "Servicios al público con contacto indirecto u ocasional" }
+          ] }
+      ],
+      "generaLodos": false, "equipos": [], "visual": "destino", "color": "#5a9e3a"
+    }
+  ]
+}

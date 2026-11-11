@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "alumno": "",
+  "proyecto": "Proyecto nuevo",
+  "datos": {
+    "Qmed_Ls": 50,
+    "Qmax_Ls": 110,
+    "Qmin_Ls": 25,
+    "poblacion": 27000,
+    "influente": { "DBO5": 250, "DQO": 500, "SST": 250, "NT": 40, "PT": 8, "GyA": 80, "CF": 10000000, "HH": 5, "T": 20 },
+    "terreno": { "largo": 110, "ancho": 70 },
+    "separacionMinima_m": 1.5
+  },
+  "unidades": [],
+  "tuberias": []
+}
